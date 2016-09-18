@@ -12,7 +12,7 @@ public class essentials4 {
 
     public static void main(String[] args) {
 
-        HashMap runMap = new HashMap();
+        HashMap<String, ArrayList<Double>> runMap = new HashMap<>();
 
         String stopEntry;
         do {
@@ -32,13 +32,13 @@ public class essentials4 {
         numberScanner.close();
     }
 
-    private static HashMap newRun(HashMap inHash){
+    private static HashMap<String, ArrayList<Double>> newRun(HashMap<String, ArrayList<Double>> inHash){
         System.out.println("Which lake did you run around?");
         String newLake = stringScanner.nextLine();
         //TODO error trapping
 
         //Pull the value ArrayList from inHash, if any
-        ArrayList thisLakeRunList = (ArrayList) inHash.get(newLake);
+        ArrayList<Double> thisLakeRunList = inHash.get(newLake);
         System.out.println("What was your time for the run?");
         double newTime = numberScanner.nextDouble();
         //TODO error trapping
@@ -56,14 +56,14 @@ public class essentials4 {
         return inHash;
     }
 
-    private static void showFastestRuns(HashMap inHash){
+    private static void showFastestRuns(HashMap<String, ArrayList<Double>> inHash){
         System.out.println();
         System.out.println("*** FASTEST RUNS ***");
 
         //iterate over each lake in the HashMap
         for (Object lake : inHash.keySet()) {
             //get the ArrayList of run times for this lake
-            ArrayList thisLakeRunList = (ArrayList) inHash.get(lake);
+            ArrayList<Double> thisLakeRunList = inHash.get(lake);
             double fastestTimeForThisLake = 99999; //arbitrarily high
             for (Object run : thisLakeRunList) {
                 double runTime = (double) run; //type conversion
@@ -72,7 +72,7 @@ public class essentials4 {
                 }
             }
             String lakeName = (String) lake; //type conversion
-            System.out.printf("%s: %.2f", lakeName, fastestTimeForThisLake);
+            System.out.printf("%s: %.2f\n", lakeName, fastestTimeForThisLake);
         }
     }
 
