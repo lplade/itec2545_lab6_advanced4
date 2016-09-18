@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class essentials4 {
 
-    static Scanner stringScanner = new Scanner(System.in);
-    static Scanner numberScanner = new Scanner(System.in);
+    private static Scanner stringScanner = new Scanner(System.in);
+    private static Scanner numberScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -75,6 +75,5 @@ public class essentials4 {
             System.out.printf("%s: %.2f\n", lakeName, fastestTimeForThisLake);
         }
     }
-
 }
 
