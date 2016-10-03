@@ -23,10 +23,7 @@ public class essentials4 {
             //TODO fancier Y/N checking
         } while (stopEntry.toLowerCase().equals("y")); //keep going until we're done
 
-
         showFastestRuns(runMap);
-
-        System.out.println();
 
         stringScanner.close();
         numberScanner.close();
