@@ -11,7 +11,7 @@ class Lake {
     Lake(String lakeName, double firstRun){
         this.name = lakeName;
         //initialize a new empty list
-        this.runTimes = new ArrayList<Double>();
+        this.runTimes = new ArrayList<>();
 
         //we need at least one run for a given lake, so require it at initialization time
         addRun(firstRun);
@@ -27,9 +27,9 @@ class Lake {
         }
     }
 
-    ArrayList<Double> getTimes() {
-        return this.runTimes;
-    }
+    //ArrayList<Double> getTimes() {
+    //    return this.runTimes;
+    //}
 
 }
 

@@ -2,7 +2,7 @@ package name.lplade;
 
 import java.util.ArrayList;
 
-public class LakeList {
+class LakeList {
     ArrayList<Lake> lakes = new ArrayList<>();
 
     //constructor
