@@ -1,10 +1,6 @@
 package name.lplade;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
-
 
 public class advanced4 {
 
@@ -14,7 +10,7 @@ public class advanced4 {
     public static void main(String[] args) {
 
         //initialize a list of Lake objects
-        ArrayList<Lake> lakeList = new ArrayList<>();
+        LakeList lakeList = new LakeList();
 
         //main input loop
         String stopEntry;
@@ -27,19 +23,7 @@ public class advanced4 {
             double newTime = numberScanner.nextDouble();
             //TODO input error trapping
 
-            Boolean lakeExists = false;
-            for(Lake lake: lakeList) {
-                if (lake.name.equals(newLake)){
-                    //add the run
-                    lake.addRun(newTime);
-                    lakeExists = true;
-                    //TODO break out of foreach to save time
-                }
-            }
-            if (! lakeExists) {
-                //construct a new Lake and add it to the list
-                lakeList.add(new Lake(newLake, newTime));
-            }
+            lakeList.addRun(newLake, newTime);
 
             System.out.print("Enter another run? (Y/N) " );
             stopEntry = stringScanner.nextLine();
@@ -50,7 +34,8 @@ public class advanced4 {
         System.out.println();
         System.out.println("*** FASTEST RUNS ***");
 
-        for (Lake lake : lakeList) {
+        //various permutations on "lake" are perhaps not great practice
+        for (Lake lake : lakeList.lakes) {
             System.out.printf("%s: %.2f\n", lake.name, lake.fastestRun);
         }
 
